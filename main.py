@@ -34,7 +34,6 @@ def user_input():
     except ValueError:
         raise ValueError("MODULUS and DIVIDER must be valid integers")
 
-    # Optional: Add any additional validation you need
     if b <= 0:
         raise ValueError("DIVIDER must be a positive integer")
 
