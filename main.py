@@ -20,19 +20,19 @@ import os
 """ This function takes the user input parameter of 'a' and 'b'"""
 def user_input():
     # Try to get values from environment variables
-    a = os.environ.get('MODULUS')
-    b = os.environ.get('DIVIDER')
+    a = os.environ.get('a')
+    b = os.environ.get('b')
     # Check if both variables are set
     if a is None or b is None:
-        raise ValueError("Both MODULUS and DIVIDER must be set as environment variables")
+        raise ValueError("Both a and b must be set as environment variables")
     try:
         # Convert to integers
         a = int(a)
         b = int(b)
     except ValueError:
-        raise ValueError("MODULUS and DIVIDER must be valid integers")
-    if b <= 0:
-        raise ValueError("DIVIDER must be a positive integer")
+        raise ValueError("a and b must be valid integers")
+    if b > a or b < 0:
+        raise ValueError("b must be positive number and less than a")
     return [a, b]
 
 """This outputs the x and y and gcd(a, b)"""
