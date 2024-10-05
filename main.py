@@ -38,6 +38,7 @@ def extended_euclidean(a, b):
     if (gcd_value != 1):
         print("gcd({},{}) = {}".format(a, b, gcd_value))
         print("{}mod{} dont have a modular inverse since gcd({},{})={}".format(b, a, a, b, gcd_value))
+        print("The values are not co-prime")
     else:
         while remainder != 0:           
             x = x_values[0] - (x_values[1]*quotient)
