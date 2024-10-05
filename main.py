@@ -28,6 +28,9 @@ def extended_euclidean(a, b):
     y = 1
     i = 0
     remainder, quotient = euclidean(a, b)
+    modulus_divider = []
+    modulus_divider.append(b)
+    modulus_divider.append(remainder)
     gcd_value = math.gcd(a, b)
     if (gcd_value != 1):
         print("gcd({},{}) = {}".format(a, b, gcd_value))
@@ -35,10 +38,17 @@ def extended_euclidean(a, b):
     else:
         while remainder != 0:           
             t = x - (y * quotient)
-            remainder, quotient = euclidean(b, remainder)
+            remainder, quotient = euclidean(modulus_divider[0], modulus_divider[1])
+            modulus_divider.pop(0)
+            modulus_divider.append(remainder)
             x = y
-            y = t
-            i=+1
+            y = t 
+        t = x - (y * quotient) 
+        print("***")
+        print("gcd({},{}) = {}".format(a, b, gcd_value))
+        print("x = {} and y = {}".format(y, t))
+
+
 
 
                 
