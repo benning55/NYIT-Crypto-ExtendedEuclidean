@@ -43,8 +43,8 @@ To run the program:
 
 A Dockerfile is provided to containerize the application. To use it:
 
-1. Build the Docker image
-2. Run the container
+1. Build the Docker image; `docker build -t crpto-hw .`
+2. Run the container; `docker run -e MODULUS=17 -e DIVIDER=5 crptho-hw`
 
 ## Example
 
