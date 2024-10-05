@@ -40,7 +40,6 @@ def extended_euclidean(a, b):
         print("{}mod{} dont have a modular inverse since gcd({},{})={}".format(b, a, a, b, gcd_value))
     else:
         while remainder != 0:           
-            #t = x - (y * quotient)
             x = x_values[0] - (x_values[1]*quotient)
             x_values.pop(0)
             x_values.append(x)
@@ -50,9 +49,13 @@ def extended_euclidean(a, b):
             remainder, quotient = euclidean(modulus_divider[0], modulus_divider[1])
             modulus_divider.pop(0)
             modulus_divider.append(remainder)
-            #x = y
-            #y = t 
-        #t = x - (y * quotient) 
+
+        while (y < 0):
+            y = y+a
+            x = x-b
+  
+        print(x_values)
+        print(y_values)
         results = (x*a) + (y*b)
         print("***")
         print("gcd({},{}) = {}".format(a, b, gcd_value))
