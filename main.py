@@ -15,13 +15,30 @@
 # ---------------------------------------------------------------------------------------
 
 import math
+import os
 
 """ This function takes the user input parameter of 'a' and 'b' """
 def user_input():
-    a = input("Enter the modulus: ")
-    b = input("Enter the divider: ")
-    return [a, b]
+    # Try to get values from environment variables
+    a = os.environ.get('MODULUS')
+    b = os.environ.get('DIVIDER')
 
+    # Check if both variables are set
+    if a is None or b is None:
+        raise ValueError("Both MODULUS and DIVIDER must be set as environment variables")
+
+    try:
+        # Convert to integers
+        a = int(a)
+        b = int(b)
+    except ValueError:
+        raise ValueError("MODULUS and DIVIDER must be valid integers")
+
+    # Optional: Add any additional validation you need
+    if b <= 0:
+        raise ValueError("DIVIDER must be a positive integer")
+
+    return [a, b]
 
 def extended_euclidean(a, b):
     x = 0
